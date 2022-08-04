@@ -39,12 +39,12 @@ def get_cupcake(id):
 
 @app.route('/api/cupcakes',methods=["POST"])    
 def create_cupcake():
-    flavor = request.form["flavor"]
-    size = request.form["size"]
-    rating = request.form["rate"]
-    image_url = request.form["url"]
-    new_cupcake = Cupcake(flavor = flavor, size=size,rating=rating, image=image_url)
-    #new_cupcake =Cupcake(flavor="Margarita", size="Large", rating=9, image="https://www.browneyedbaker.com/wp-content/uploads/2011/05/margarita-cupcakes-22-800-768x1152.jpg")
+    #flavor = request.form["flavor"]
+    #size = request.form["size"]
+    #rating = request.form["rate"]
+    #image_url = request.form["url"]
+    #new_cupcake = Cupcake(flavor = flavor, size=size,rating=rating, image=image_url)
+    new_cupcake =Cupcake(flavor="Margarita", size="Large", rating=9, image="https://www.browneyedbaker.com/wp-content/uploads/2011/05/margarita-cupcakes-22-800-768x1152.jpg")
     db.session.add(new_cupcake)
     db.session.commit()
     response_json=jsonify(new_cupcake.serialize())
