@@ -1,0 +1,48 @@
+{% extends 'base.html' %}
+{% block title%}
+    CupCakes dessert Listing
+{% endblock %}
+
+{% block content %}
+<div class="container">
+    <br><br><br><br>
+    <div class="w-75 p-3 center" style="background-color: #eee; padding: 20px;">
+        <br>
+        <h1>Cupcakes List</h1>
+        <br>
+        <ul>
+            {% for i in cupcakes %}
+                <li>{{i.flavor}} </li>
+            {% endfor %}    
+        </ul>
+    </div>
+    <br><br>
+    <div class="w-75 p-3 center" style="background-color: #eee; padding: 20px;">
+        <br>
+        <h1>Add CupCake</h1>
+        <br>
+       
+        <form method="post" action="/api/cupcakes">
+            <div class="form-group">
+                <label for="flavor">Flavor </label>
+                <input type="text" class="form-control" name ="flavor" placeholder="Enter a Flavor">
+              </div>
+              <div class="form-group">
+                <label for="size">Size </label>
+                <input type="text" class="form-control" name="size" placeholder="Enter a Size">
+              </div>  
+              <div class="form-group">
+                <label for="rate">Rate </label>
+                <input type="number" min="0" max="10" class="form-control" name="rate" placeholder="0" >
+              </div>    
+              <div class="form-group">
+                <label for="url">Image URL</label>
+                <input type="text" class="form-control" name="url" placeholder="Provide the image for this cupcake">
+              </div>                                 
+            <button type="submit" class="btn btn-primary" id="btn_submit">Add</button>
+
+        </form>
+    </div>
+        
+</div>        
+{% endblock %}
